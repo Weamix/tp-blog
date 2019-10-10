@@ -42,7 +42,7 @@ $articles = delete_article();
         </div>
     </nav>
 
-    <?php $bdd=new PDO( 'mysql:host=localhost;dbname=blog2;charset=utf8', 'root', ''); // connexion à la BDD
+    <?php
 
     if (isset($_GET['id'])) {
         $getid=intval($_GET['id']);
