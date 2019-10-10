@@ -47,7 +47,7 @@ $articles = get_all_articles();
     <div class="row">
         <?php foreach($articles as $article): ?>
                 <img src="<?= $article['image'] ?>">
-                <div id="content">
+                <div id="content" class="col-md-8">
                 <h3><?= $article['title']; ?></h3>
                 <p><?= get_description($article['content']); ?>
                 <h2><a href="article.php?id=<?= $article['id'] ?>"></a></h2>
