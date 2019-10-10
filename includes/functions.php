@@ -7,6 +7,19 @@ function get_all_articles()
     return $sth->fetchAll();
 }
 
+function get_description($description)
+{
+    $max_caracteres=800;
+    if (strlen($description)>$max_caracteres)
+    {   
+        $description = substr($description, 0, $max_caracteres);
+        $position_espace = strrpos($description, " ");   
+        $description = substr($description, 0, $position_espace);   
+        $description = $description."...";
+    }
+    return $description;
+}
+
 function add_article(){
     global $db;
 
@@ -32,6 +45,8 @@ function get_article($getid){
     return $data;
 }
 
+
+
 function delete_article(){
     global $db;
     if (isset($_POST['to_delete'])) {
@@ -47,3 +62,4 @@ function update_article($title, $category, $content, $image, $id)
     $req = $db->prepare('UPDATE articles SET title = ?, category = ?, content = ?, image =? WHERE id = ?');
     $req->execute(array($title, $category, $content, $image, $id));
 }
+

@@ -5,13 +5,13 @@ $articles = get_all_articles();
 
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head lang="fr">
-    <meta charset="utf8">
+    <meta charset="utf-8">
     <title>Home</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/home.css">
 
 </head>
 
@@ -43,29 +43,21 @@ $articles = get_all_articles();
 </nav>
 
 <div class="news">
-    <h1>L'Actu:</h1>
+    <h2 class="title">Dernières actus</h2>
     <div class="row">
         <?php foreach($articles as $article): ?>
-            <div class="col-md-4">
+                <img src="<?= $article['image'] ?>">
+                <div id="content1">
                 <h3><?= $article['title']; ?></h3>
+                <p><?= get_description($article['content']); ?></p>
                 <br>
                 <h2><a href="article.php?id=<?= $article['id'] ?>"></a></h2>
-                <img src="<?= $article['image'] ?>" width="350px" height="200px">
                 <br>
-                <?php
-                $text = '<a href="article.php?id=' . $article['id'] . '">Lire cet article</a>';
-                echo $text;
-                ?>
-            </div>
+                <?= '<a href="article.php?id=' . $article['id'] . '">Lire cet article</a>';?>
+                </div>
         <?php endforeach; ?>
     </div>
 </div>
-
-<style>
-    body{
-        text-align:center;
-    }
-</style>
 
 </body>
 </html>
