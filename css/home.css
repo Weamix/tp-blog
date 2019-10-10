@@ -2,24 +2,32 @@
     color:green;
     font-size:3em;
     margin-top:2%;
+    text-align: center;
 }
 
 img{
-    margin:3%;
+    margin:1%;
     width:350px;
     height:200px;
     display: flex;
     float:left;
 }
 
-#content1{
-    margin-top:3%;
+#content{
     display:right;
     height:10%;
     width:70%;
+    margin-top:1%;
 }
 
-#news{
+.news{
     text-align: left;
+    width:1400px;
+    margin:auto;
 
+
+}
+
+h3{
+    
 }

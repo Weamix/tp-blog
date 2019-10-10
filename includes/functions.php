@@ -9,7 +9,7 @@ function get_all_articles()
 
 function get_description($description)
 {
-    $max_caracteres=800;
+    $max_caracteres=700;
     if (strlen($description)>$max_caracteres)
     {   
         $description = substr($description, 0, $max_caracteres);
