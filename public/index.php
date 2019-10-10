@@ -1,7 +1,6 @@
 <?php
 
 require_once '../includes/config.php';
-
 $articles = get_all_articles();
 
 ?>
@@ -10,7 +9,7 @@ $articles = get_all_articles();
 <!DOCTYPE html>
 <html>
 <head lang="fr">
-    <meta charset="UTF-8">
+    <meta charset="utf8">
     <title>Home</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
 
@@ -70,8 +69,6 @@ $articles = get_all_articles();
 
 </body>
 </html>
-
-
 
 
 

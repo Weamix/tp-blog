@@ -1,9 +1,5 @@
 <?php
-
 require_once '../includes/config.php';
-
-$articles = get_all_articles();
-
 ?>
 
 <!DOCTYPE html>
@@ -12,8 +8,6 @@ $articles = get_all_articles();
     <meta charset="utf-8">
     <title>Publier un article</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
-
-
 </head>
 
 <body>
@@ -43,25 +37,36 @@ $articles = get_all_articles();
     </div>
 </nav>
 
-<?php $bdd=new PDO( 'mysql:host=localhost;dbname=blog2;charset=utf8', 'root', ''); // connexion à la BDD
+<?php
 
 if (isset($_GET['id'])) {
     $getid=intval($_GET['id']);
 } else {
-    //header( 'location:index.php');
+    header( 'location:index.php');
 }
-$req=$bdd->prepare('SELECT * FROM articles WHERE id = ?');
-$req->execute(array($getid));
-$data = $req->fetch(); ?>
+
+if (isset($_POST['title'])&&isset($_POST['category'])&&isset($_POST['content'])){
+    $title=$_POST['title'];
+    $category=$_POST['category'];
+    $content=$_POST['content'];
+    $image=$_POST['image'];
+
+    update_article($title, $category, $content, $image, $getid);
+}
+
+$data = get_article($getid);
+
+?>
 
 <form action="" method="POST">
     <div id="formulaire">
-        <h1>Modifier votre article</h1>
+        <h1>
+            Modifier votre article</h1>
         <div class="form-group">
             <label for="title">Titre de votre article</label>
-            <input class="form-control" type="text" id="40" name="title"; value="<?php echo $article->title; ?>">
+            <input class="form-control" type="text" id="40" name="title"; value="<?php echo $data['title']; ?>">
             <?php
-            var_dump($articles);
+
             ?>
         </div>
         <br>
@@ -69,21 +74,14 @@ $data = $req->fetch(); ?>
         <input  class="form-control" id="category" name="category" value="<?php echo $data['category'];?>"></textarea>
         <br>
         <label>Url de l'illustration</label>
-        <input  class="form-control"id="image" name="image"></textarea>
+        <input  class="form-control"id="image" name="image" value="<?php echo $data['image'];?>"></textarea>
         <br>
         <label>Contenu de votre article</label>
-        <textarea  class="form-control"id="content" name="content"rows="10"></textarea>
+        <textarea  class="form-control" id="content" name="content" rows="10"><?php echo $data['content'];?></textarea>
         <br>
         <input type="submit" class="btn btn-primary" id="submit" name="submit">
     </div>
 </form>
-
-<?php
-
-
-
-?>
-
 
 <style>
     body{

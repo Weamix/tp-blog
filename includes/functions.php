@@ -24,9 +24,16 @@ function add_article(){
     }
 }
 
+function get_article($getid){
+    global $db;
+    $req=$db->prepare('SELECT * FROM articles WHERE id = ?');
+    $req->execute(array($getid));
+    $data = $req->fetch();
+    return $data;
+}
+
 function delete_article(){
     global $db;
-
     if (isset($_POST['to_delete'])) {
         $id = $_POST['id'];
         $req=$db->prepare('DELETE FROM articles WHERE id = ?');
@@ -34,11 +41,9 @@ function delete_article(){
     }
 }
 
-/*
-function edit_article()
+function update_article($title, $category, $content, $image, $id)
 {
     global $db;
-    $sth = $db->query("UPDATE articles SET");
-    return $sth->fetchAll();
+    $req = $db->prepare('UPDATE articles SET title = ?, category = ?, content = ?, image =? WHERE id = ?');
+    $req->execute(array($title, $category, $content, $image, $id));
 }
-*/

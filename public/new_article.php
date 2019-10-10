@@ -64,9 +64,6 @@ $articles = add_article();
     </div>
 </form>
 
-
-
-
 <style>
 body{
     text-align:center;

@@ -49,9 +49,7 @@ $articles = delete_article();
     } else {
         header( 'location:index.php');
     }
-    $req=$bdd->prepare('SELECT * FROM articles WHERE id = ?');
-    $req->execute(array($getid));
-    $data = $req->fetch(); ?>
+    $data = get_article($getid); ?>
 
     <h3>
       <a><?php echo htmlspecialchars($data['title']); ?></a>
@@ -70,8 +68,7 @@ $articles = delete_article();
         </form>
 
         <form method="post" action="article.php">
-            <input type="hidden" name="id" id="id" value="<?= $data['id']; ?>">
-            <button class="btn btn-primary btn-lg" type="submit" name="edit" id="edit">Editer</button>
+            <a class="btn btn-primary btn-lg" href="edit_article.php?id=<?= $data['id']?>">Editer</a>
         </form>
 
     <style>
