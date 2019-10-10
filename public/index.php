@@ -43,7 +43,7 @@ $articles = get_all_articles();
 </nav>
 
 <div class="news">
-    <h2 class="title">Dernières actus</h2>
+    <h2 class="title">Dernières actu</h2>
     <div class="row">
         <?php foreach($articles as $article): ?>
                 <img src="<?= $article['image'] ?>">
