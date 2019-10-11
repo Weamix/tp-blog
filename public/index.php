@@ -48,7 +48,7 @@ $articles = get_all_articles();
         <?php foreach($articles as $article): ?>
                 <img src="<?= $article['image'] ?>">
                 <div id="content" class="col-md-8">
-                <h3><?= $article['title']; ?></h3>
+                <?= '<a href="article.php?id=' . $article['id'] . '"><h3>'.$article['title'].'</h3></a>';?>
                 <p><?= get_description($article['content']); ?>
                 <h2><a href="article.php?id=<?= $article['id'] ?>"></a></h2>
                 <?= '<a href="article.php?id=' . $article['id'] . '">Lire cet article</a>';?>

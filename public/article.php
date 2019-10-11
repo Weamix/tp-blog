@@ -1,9 +1,6 @@
 <?php
-
 require_once '../includes/config.php';
-
 $articles = delete_article();
-
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +10,7 @@ $articles = delete_article();
     <meta charset="utf-8">
     <title>Home</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/article.css">
 </head>
 
 <body>
@@ -51,32 +49,18 @@ $articles = delete_article();
     }
     $data = get_article($getid); ?>
 
-    <h3>
-      <a><?php echo htmlspecialchars($data['title']); ?></a>
-      <em>publié le <?php echo $data['created_at']; ?></em>
-      dans la catégorie <?php echo $data['category']; ?>
-	</h3>
-
-    <img src="<?= $data['image'] ?>">
-    <p>
-        <?php echo nl2br(htmlspecialchars($data[ 'content'])); ?>
-    </p>
+    <div id="article">
+        <h1><a><?php echo htmlspecialchars($data['title']); ?></a></h1>
+        <h3><em>publié le <?php echo $data['created_at']; ?></em>dans la catégorie <?php echo $data['category']; ?></h3>
+        <img src="<?= $data['image'] ?>">
+        <p><?php echo nl2br(htmlspecialchars($data[ 'content'])); ?></p>
 
         <form method="post" action="article.php">
             <input type="hidden" name="id" id="id" value="<?= $data['id']; ?>">
             <button class="btn btn-primary btn-lg" type="submit" name="to_delete" id="to_delete">Supprimer</button>
-        </form>
-
-        <form method="post" action="article.php">
             <a class="btn btn-primary btn-lg" href="edit_article.php?id=<?= $data['id']?>">Editer</a>
         </form>
-
-    <style>
-    body{
-        text-align:center;
-    }
-
-    </style>
-
+        <br>
+    </div>
 </body>
 </html>
