@@ -6,7 +6,7 @@
 
 ## Consignes du TP
 - [X] Construiser un projet sur votre environnement local reprenant la même structure que ce repository. Vous devriez obtenir le résultat suivant :
-![screenshot](docs/screencapture.png)
+![screenshot](https://raw.githubusercontent.com/sebastienharinck/iut-tp-blog/master/docs/screencapture.png)
 - [X] Appeler votre intervenant (2 points)
 - [X] En vous inspirant de cette structure, mettre en place un CRUD :  CREATION / RETRIEVE / UPDATE / DELETE pour les articles de blog.
 - [X] Appeler votre intervenant (2 points)
