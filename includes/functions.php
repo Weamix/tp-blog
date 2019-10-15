@@ -45,8 +45,6 @@ function get_article($getid){
     return $data;
 }
 
-
-
 function delete_article(){
     global $db;
     if (isset($_POST['to_delete'])) {

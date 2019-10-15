@@ -1,5 +1,8 @@
 <?php
 require_once '../includes/config.php';
+if(!isset($_SESSION)){
+    session_start();
+}
 $articles = delete_article();
 ?>
 
@@ -15,30 +18,50 @@ $articles = delete_article();
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="../public/">Blog</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="">Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarColor03">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="../public/">Articles</a>
+    <div class="collapse navbar-collapse" id="navbarColor03">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="">Articles</a>
+            </li>
+
+            <?php
+            if (empty($_SESSION['id']))
+            {
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="../public/register.php">Inscription</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../public/login.php">Connexion</a>
+                </li>
+                <?php
+            }
+            else
+            {
+                ?>
                 <li class="nav-item">
                     <a class="nav-link" href="../public/new_article.php">Ajouter un article</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../public/deconnexion.php">Déconnexion</a>
+                </li>
+                <?php
+            }
+            ?>
+        </ul>
 
-
-            </ul>
-
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Chercher</button>
+        </form>
+    </div>
+</nav>
 
     <?php
 
@@ -55,11 +78,25 @@ $articles = delete_article();
         <img src="<?= $data['image'] ?>">
         <p><?php echo nl2br(htmlspecialchars($data[ 'content'])); ?></p>
 
-        <form method="post" action="article.php">
-            <input type="hidden" name="id" id="id" value="<?= $data['id']; ?>">
-            <button class="btn btn-primary btn-lg" type="submit" name="to_delete" id="to_delete">Supprimer</button>
-            <a class="btn btn-primary btn-lg" href="edit_article.php?id=<?= $data['id']?>">Editer</a>
-        </form>
+
+
+            <?php
+            if (empty($_SESSION['id']))
+            {
+                ?>
+                <?php
+            }
+            else
+            {
+                ?>
+                <form method="post" action="article.php">
+                    <input type="hidden" name="id" id="id" value="<?= $data['id']; ?>">
+                    <button class="btn btn-primary btn-lg" type="submit" name="to_delete" id="to_delete">Supprimer</button>
+                    <a class="btn btn-primary btn-lg" href="edit_article.php?id=<?= $data['id']?>">Editer</a>
+                </form>
+                <?php
+            }
+            ?>
         <br>
     </div>
 </body>
