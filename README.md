@@ -13,7 +13,11 @@
 - [ ] En vous inspirant de cette structure, mettre en place un CRUD pour les catégories des articles de blog
 - [X] Mettre en place un formulaire de connexion
 - [X] Mettre en place un système de permissions
-- [ ] Appeler votre intervenant si vous avez fini
+- [X] Appeler votre intervenant si vous avez fini
 
 ## A rendre
 - [X] une url de votre projet github. Les commandes principales de git : "git status" / "git add" / "git commit" / "git push"
+
+# Suite
+- [ ] Observer la nouvelle structure du code en orienté objet et coder les "todo"
+
