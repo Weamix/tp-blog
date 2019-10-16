@@ -103,7 +103,7 @@ $articles = get_all_articles();
 
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="../public/index">Blog</a>
+      <a class="navbar-brand" href="../public/index.php">Blog</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
@@ -111,7 +111,7 @@ $articles = get_all_articles();
       <div class="collapse navbar-collapse" id="navbarColor03">
           <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                  <a class="nav-link" href="../public/index">Articles</a>
+                  <a class="nav-link" href="../public/index.php">Articles</a>
               </li>
 
               <?php
