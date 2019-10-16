@@ -22,6 +22,6 @@
 - [ ] Observer la nouvelle structure du code en orienté objet et coder les "todo"
     - [X] create POO
     - [X] update POO
+    - [X] create POO
     - [ ] delete POO
-    - [ ] create POO
 
