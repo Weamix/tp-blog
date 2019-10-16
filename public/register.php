@@ -57,7 +57,7 @@ $articles = get_all_articles();
               }
 
             }else {
-              $error = "Le pseudo est déjà utilsié !";
+              $error = "Le pseudo est déjà utilisé !";
             }
 
           }
@@ -96,7 +96,8 @@ $articles = get_all_articles();
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/home.css"
+    <link rel="stylesheet" href="../css/home.css">
+    <title>Inscription</title>
 </head>
   <body>
 
