@@ -1,9 +1,13 @@
 <?php
 require_once '../includes/config.php';
+
 if(!isset($_SESSION)){
     session_start();
 }
-$articles = get_all_articles();
+
+// $articles = all();
+$pt = new PostTable();
+$posts = $pt->all();
 ?>
 
 <!DOCTYPE html>
@@ -65,13 +69,13 @@ $articles = get_all_articles();
         <div class="news">
             <h2 class="title">Dernières actus</h2>
             <div class="row">
-                <?php foreach($articles as $article): ?>
-                        <img src="<?= $article['image'] ?>">
+                <?php foreach($posts as $post): ?>
+                        <img src="<?= $post['image'] ?>">
                         <div id="content" class="col-md-8">
-                        <?= '<a href="article.php?id=' . $article['id'] . '"><h3>'.$article['title'].'</h3></a>';?>
-                        <p><?= get_description($article['content']); ?>
-                        <h2><a href="article.php?id=<?= $article['id'] ?>"></a></h2>
-                        <?= '<a href="article.php?id=' . $article['id'] . '">Lire cet article</a>';?>
+                        <?= '<a href="article.php?id=' . $post['id'] . '"><h3>'.$post['title'].'</h3></a>';?>
+                        <p><?= get_description($post['content']); ?>
+                        <h2><a href="article.php?id=<?= $post['id'] ?>"></a></h2>
+                        <?= '<a href="article.php?id=' . $post['id'] . '">Lire cet article</a>';?>
                         </div>
                 <?php endforeach; ?>
             </div>

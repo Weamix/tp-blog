@@ -20,4 +20,8 @@
 
 # Suite
 - [ ] Observer la nouvelle structure du code en orienté objet et coder les "todo"
+    - [X] create POO
+    - [X] update POO
+    - [] delete POO
+    - [] create POO
 

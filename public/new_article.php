@@ -1,9 +1,25 @@
 <?php
 require_once '../includes/config.php';
+
+error_reporting(0);
+
 if(!isset($_SESSION)){
     session_start();
 }
-$articles = get_all_articles();
+//$articles = get_all_articles();
+
+$pt = new PostTable();
+if (isset($_POST['title']) && isset($_POST['content']) && isset($_POST['category'])) {
+    $post = new Post();
+    $post->setTitle($_POST['title']);
+    $post->setContent($_POST['content']);
+    $post->setCategory($_POST['category']);
+    $post->setImage($_POST['image']);
+    $pt->create($post);
+    header("Location: index.php");
+    /*header("Location: article.php?id=".$post['id']);*/
+}
+$posts = $pt->all();
 ?>
 
 <!DOCTYPE html>

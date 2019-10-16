@@ -3,7 +3,10 @@ require_once '../includes/config.php';
 if(!isset($_SESSION)){
     session_start();
 }
-$articles = delete_article();
+//$articles = delete_article();
+
+$pt = new PostTable();
+$posts = $pt->all();
 ?>
 
 <!DOCTYPE html>

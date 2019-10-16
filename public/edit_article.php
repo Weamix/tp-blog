@@ -3,6 +3,20 @@ if(!isset($_SESSION)){
     session_start();
 }
 require_once '../includes/config.php';
+error_reporting(0);
+
+$pt = new PostTable();
+if (isset($_POST['title']) && isset($_POST['content']) && isset($_POST['category'])) {
+    $post = new Post();
+    $post->setTitle($_POST['title']);
+    $post->setContent($_POST['content']);
+    $post->setCategory($_POST['category']);
+    $post->setImage($_POST['image']);
+    $post->setID($_GET['id']);
+    $pt->update($post);
+
+}
+$posts = $pt->all();
 ?>
 
 <!DOCTYPE html>
@@ -68,14 +82,14 @@ require_once '../includes/config.php';
             header( 'location:index.php');
         }
 
-        if (isset($_POST['title'])&&isset($_POST['category'])&&isset($_POST['content'])){
+        /*if (isset($_POST['title'])&&isset($_POST['category'])&&isset($_POST['content'])){
             $title=$_POST['title'];
             $category=$_POST['category'];
             $content=$_POST['content'];
             $image=$_POST['image'];
 
             update_article($title, $category, $content, $image, $getid);
-        }
+        }*/
 
         $data = get_article($getid);
 

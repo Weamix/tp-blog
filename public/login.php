@@ -3,7 +3,7 @@ require_once '../includes/config.php';
 if(!isset($_SESSION)){
     session_start();
 }
-$articles = get_all_articles();
+
 ?>
 
 <!DOCTYPE html>
