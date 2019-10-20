@@ -10,7 +10,7 @@
 - [X] Appeler votre intervenant (2 points)
 - [X] En vous inspirant de cette structure, mettre en place un CRUD :  CREATION / RETRIEVE / UPDATE / DELETE pour les articles de blog.
 - [X] Appeler votre intervenant (2 points)
-- [ ] En vous inspirant de cette structure, mettre en place un CRUD pour les catégories des articles de blog
+- [X] En vous inspirant de cette structure, mettre en place un CRUD pour les catégories des articles de blog
 - [X] Mettre en place un formulaire de connexion
 - [X] Mettre en place un système de permissions
 - [X] Appeler votre intervenant si vous avez fini
@@ -29,12 +29,10 @@
 
 - [X] Front (design)
 - [X] Déploiement du blog sur un serveur => http://www.intelligence-artificielle.ovh/blog/public/index.php 
-- [X]  Système d'inscription
+- [X] Système d'inscription
 
-ToDo :
-- [ ] Categories
-- [ ] POO register & log
+Ideas ToDo :
+- [ ] Faire register & log en POO
 - [ ] Système de commentaires
 - [ ] Un compteur de vues par article
-- [ ] Connecté en tant que
 

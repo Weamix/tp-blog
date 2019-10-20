@@ -1,6 +1,5 @@
 <?php
 require_once '../includes/config.php';
-$articles = get_all_articles();
 ?>
 
 <!DOCTYPE html>
@@ -113,16 +112,19 @@ $articles = get_all_articles();
               <li class="nav-item active">
                   <a class="nav-link" href="../public/index.php">Articles</a>
               </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="../public/categories.php">Catégories</a>
+              </li>
 
               <?php
               if (empty($_SESSION['id']))
               {
                   ?>
                   <li class="nav-item">
-                      <a class="nav-link" href="../public/register">Inscription</a>
+                      <a class="nav-link" href="../public/register.php">Inscription</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="../public/login">Connexion</a>
+                      <a class="nav-link" href="../public/login.php">Connexion</a>
                   </li>
                   <?php
               }

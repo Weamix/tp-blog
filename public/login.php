@@ -59,6 +59,9 @@ if(!isset($_SESSION)){
                   <li class="nav-item active">
                       <a class="nav-link" href="../public/index.php">Articles</a>
                   </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="../public/categories.php">Catégories</a>
+                  </li>
 
                   <?php
                   if (empty($_SESSION['id']))

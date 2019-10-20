@@ -8,6 +8,9 @@ if(!isset($_SESSION)){
 // $articles = all();
 $pt = new PostTable();
 $posts = $pt->all();
+
+$c = new CategoryTable();
+$categories = $c->all();
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +34,9 @@ $posts = $pt->all();
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="../public/index.php">Articles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../public/categories.php">Catégories</a>
                     </li>
 
                     <?php
@@ -57,6 +63,7 @@ $posts = $pt->all();
                         <?php
                     }
                     ?>
+
                 </ul>
 
                 <form class="form-inline my-2 my-lg-0">

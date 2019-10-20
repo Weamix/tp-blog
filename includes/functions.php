@@ -3,6 +3,9 @@
 require_once 'classes/Post.php';
 require_once 'tables/PostTable.php';
 
+require_once 'classes/Category.php';
+require_once 'tables/CategoryTable.php';
+
 function get_description($description)
 {
     $max_caracteres=500;
@@ -35,15 +38,15 @@ function get_all_articles()
 function add_article(){
     global $db;
 
-    if (!empty($_POST['title']) AND !empty($_POST['content']) and !empty($_POST['category.php'])){
+    if (!empty($_POST['title']) AND !empty($_POST['content']) and !empty($_POST['category'])){
 
         $title = htmlspecialchars($_POST['title']);
         $content = nl2br($_POST['content']);
-        $category.php = htmlspecialchars($_POST['category.php']);
+        $category.php = htmlspecialchars($_POST['category']);
         $image = htmlspecialchars($_POST['image']);
 
-        $req = $db->prepare('INSERT INTO articles(title, content,created_at, category.php,image) VALUES(?,?,?,?,?)');
-        $req->execute(array($title, $content, date('Y-m-d H:i:s'),$category.php,$image));
+        $req = $db->prepare('INSERT INTO articles(title, content,created_at, category,image) VALUES(?,?,?,?,?)');
+        $req->execute(array($title, $content, date('Y-m-d H:i:s'),$category,$image));
 
         echo "L'article est publié !";
     }
@@ -57,11 +60,11 @@ function delete_article(){
     }
 }
 
-function update_article($title, $category.php, $content, $image, $id)
+function update_article($title, $category, $content, $image, $id)
 {
     global $db;
-    $req = $db->prepare('UPDATE articles SET title = ?, category.php = ?, content = ?, image =? WHERE id = ?');
-    $req->execute(array($title, $category.php, $content, $image, $id));
+    $req = $db->prepare('UPDATE articles SET title = ?, category = ?, content = ?, image =? WHERE id = ?');
+    $req->execute(array($title, $category, $content, $image, $id));
 }
 
 */
