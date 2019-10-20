@@ -82,13 +82,13 @@ $posts = $pt->all();
             header( 'location:index.php');
         }
 
-        /*if (isset($_POST['title'])&&isset($_POST['category'])&&isset($_POST['content'])){
+        /*if (isset($_POST['title'])&&isset($_POST['category.php'])&&isset($_POST['content'])){
             $title=$_POST['title'];
-            $category=$_POST['category'];
+            $category.php=$_POST['category.php'];
             $content=$_POST['content'];
             $image=$_POST['image'];
 
-            update_article($title, $category, $content, $image, $getid);
+            update_article($title, $category.php, $content, $image, $getid);
         }*/
 
         $data = get_article($getid);

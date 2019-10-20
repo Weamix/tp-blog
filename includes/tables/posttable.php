@@ -9,9 +9,21 @@ class PostTable
         global $db;
         $this->db = $db;
     }
+
     public function get(int $id): Post
     {
-        // todo
+        $sth = $this->db->prepare("SELECT * FROM {$this->table} WHERE id = :id");
+        $sth->bindParam(':id', $id);
+
+        $result = $sth->execute();
+        $data = $sth->fetch();
+        $post = new Post();
+        $post->setTitle($data['title']);
+        $post->setCategory($data['category']);
+        $post->setImage($data['image']);
+        $post->setContent($data['content']);
+        $post->setId($data['id']);
+        return $post;
     }
 
     public function all(): array
@@ -41,6 +53,7 @@ class PostTable
             throw new Exception("Error during creation with the table {$this->table}");
         }
     }
+
     public function update(Post $post): void
     {
         $sth = $this->db->prepare("UPDATE {$this->table} SET title=:title, category=:category, content=:content, image=:image WHERE id=:id;");
@@ -57,8 +70,9 @@ class PostTable
     public function delete(int $id): void
     {
         $sth = $this->db->prepare("DELETE FROM {$this->table} WHERE id =:id");
-        $sth->bindParam(':id', $post->getID());
+        $sth->bindParam(':id', $id);
         $result = $sth->execute();
     }
+
 }
 

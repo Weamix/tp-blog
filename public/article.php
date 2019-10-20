@@ -3,10 +3,22 @@ require_once '../includes/config.php';
 if(!isset($_SESSION)){
     session_start();
 }
-//$articles = delete_article();
+
+//$posts = delete_article();
 
 $pt = new PostTable();
+
+$getid = intval($_GET['id']);
+
+if (isset($_POST['to_delete'])) {
+    $id = $_POST['id'];
+    $pt->delete($id);
+    header('location:index.php');
+}
+
+$post = get_article($getid);
 $posts = $pt->all();
+
 ?>
 
 <!DOCTYPE html>
@@ -66,20 +78,11 @@ $posts = $pt->all();
             </div>
         </nav>
 
-        <?php
-
-        if (isset($_GET['id'])) {
-            $getid=intval($_GET['id']);
-        } else {
-            header( 'location:index.php');
-        }
-        $data = get_article($getid); ?>
-
         <div id="article">
-            <h1><a><?php echo htmlspecialchars($data['title']); ?></a></h1>
-            <h3><em>publié le <?php echo $data['created_at']; ?></em>dans la catégorie <?php echo $data['category']; ?></h3>
-            <img src="<?= $data['image'] ?>">
-            <p><?php echo nl2br(htmlspecialchars($data[ 'content'])); ?></p>
+            <h1><a><?php echo htmlspecialchars($post['title']); ?></a></h1>
+            <h3><em>publié le <?php echo $post['created_at']; ?></em> dans la catégorie <?php echo $post['category']; ?></h3>
+            <img src="<?= $post['image'] ?>">
+            <p><?php echo nl2br(htmlspecialchars($post[ 'content'])); ?></p>
 
 
 
@@ -93,9 +96,9 @@ $posts = $pt->all();
                 {
                     ?>
                     <form method="post" action="article.php">
-                        <input type="hidden" name="id" id="id" value="<?= $data['id']; ?>">
+                        <input type="hidden" name="id" id="id" value="<?= $post['id']; ?>">
                         <button class="btn btn-primary btn-lg" type="submit" name="to_delete" id="to_delete">Supprimer</button>
-                        <a class="btn btn-primary btn-lg" href="edit_article.php?id=<?= $data['id']?>">Editer</a>
+                        <a class="btn btn-primary btn-lg" href="edit_article.php?id=<?= $post['id']?>">Editer</a>
                     </form>
                     <?php
                 }

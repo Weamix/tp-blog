@@ -28,15 +28,15 @@ function get_description($description)
 function add_article(){
     global $db;
 
-    if (!empty($_POST['title']) AND !empty($_POST['content']) and !empty($_POST['category'])){
+    if (!empty($_POST['title']) AND !empty($_POST['content']) and !empty($_POST['category.php'])){
 
         $title = htmlspecialchars($_POST['title']);
         $content = nl2br($_POST['content']);
-        $category = htmlspecialchars($_POST['category']);
+        $category.php = htmlspecialchars($_POST['category.php']);
         $image = htmlspecialchars($_POST['image']);
 
-        $req = $db->prepare('INSERT INTO articles(title, content,created_at, category,image) VALUES(?,?,?,?,?)');
-        $req->execute(array($title, $content, date('Y-m-d H:i:s'),$category,$image));
+        $req = $db->prepare('INSERT INTO articles(title, content,created_at, category.php,image) VALUES(?,?,?,?,?)');
+        $req->execute(array($title, $content, date('Y-m-d H:i:s'),$category.php,$image));
 
         echo "L'article est publié !";
     }
@@ -51,6 +51,7 @@ function get_article($getid){
 }
 
 /*
+
 function delete_article(){
     global $db;
     if (isset($_POST['to_delete'])) {
@@ -58,13 +59,14 @@ function delete_article(){
         $req=$db->prepare('DELETE FROM articles WHERE id = ?');
         $req->execute(array($id));
     }
-} */
+}
 
-/*
-function update_article($title, $category, $content, $image, $id)
+function update_article($title, $category.php, $content, $image, $id)
 {
     global $db;
-    $req = $db->prepare('UPDATE articles SET title = ?, category = ?, content = ?, image =? WHERE id = ?');
-    $req->execute(array($title, $category, $content, $image, $id));
-}*/
+    $req = $db->prepare('UPDATE articles SET title = ?, category.php = ?, content = ?, image =? WHERE id = ?');
+    $req->execute(array($title, $category.php, $content, $image, $id));
+}
+
+*/
 

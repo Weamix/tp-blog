@@ -73,5 +73,3 @@ class Post
         return $this;
     }
 }
-
-?>
