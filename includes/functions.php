@@ -3,14 +3,6 @@
 require_once 'classes/Post.php';
 require_once 'tables/PostTable.php';
 
-/*
-function get_all_articles()
-{
-    global $db;
-    $sth = $db->query("SELECT * FROM articles");
-    return $sth->fetchAll();
-}*/
-
 function get_description($description)
 {
     $max_caracteres=500;
@@ -24,7 +16,22 @@ function get_description($description)
     return $description;
 }
 
-/*
+function get_article($getid){
+    global $db;
+    $req=$db->prepare('SELECT * FROM articles WHERE id = ?');
+    $req->execute(array($getid));
+    $data = $req->fetch();
+    return $data;
+}
+
+/* Fonctions CRUD en programmation fonctionelle
+
+function get_all_articles()
+{
+    global $db;
+    $sth = $db->query("SELECT * FROM articles");
+    return $sth->fetchAll();
+
 function add_article(){
     global $db;
 
@@ -40,17 +47,6 @@ function add_article(){
 
         echo "L'article est publié !";
     }
-}*/
-
-function get_article($getid){
-    global $db;
-    $req=$db->prepare('SELECT * FROM articles WHERE id = ?');
-    $req->execute(array($getid));
-    $data = $req->fetch();
-    return $data;
-}
-
-/*
 
 function delete_article(){
     global $db;

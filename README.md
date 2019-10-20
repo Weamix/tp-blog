@@ -19,9 +19,22 @@
 - [X] une url de votre projet github. Les commandes principales de git : "git status" / "git add" / "git commit" / "git push"
 
 # Suite
-- [ ] Observer la nouvelle structure du code en orienté objet et coder les "todo"
+- [X] Observer la nouvelle structure du code en orienté objet et coder les "todo"
     - [X] create POO
+    - [X] retrieve POO
     - [X] update POO
-    - [X] create POO
-    - [ ] delete POO
+    - [X] delete POO
+
+# Bonus :
+
+- [X] Front (design)
+- [X] Déploiement du blog sur un serveur => http://www.intelligence-artificielle.ovh/blog/public/index.php 
+- [X]  Système d'inscription
+
+ToDo :
+- [ ] Categories
+- [ ] POO register & log
+- [ ] Système de commentaires
+- [ ] Un compteur de vues par article
+- [ ] Connecté en tant que
 

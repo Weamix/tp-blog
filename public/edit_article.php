@@ -91,7 +91,7 @@ $posts = $pt->all();
             update_article($title, $category.php, $content, $image, $getid);
         }*/
 
-        $data = get_article($getid);
+        $post = get_article($getid);
 
         ?>
 
@@ -101,20 +101,20 @@ $posts = $pt->all();
                     Modifier votre article</h1>
                 <div class="form-group">
                     <label for="title">Titre de votre article</label>
-                    <input class="form-control" type="text" id="40" name="title"; value="<?php echo $data['title']; ?>">
+                    <input class="form-control" type="text" id="40" name="title"; value="<?php echo $post['title']; ?>">
                     <?php
 
                     ?>
                 </div>
                 <br>
                 <label>Catégorie de votre article</label>
-                <input  class="form-control" id="category" name="category" value="<?php echo $data['category'];?>"></textarea>
+                <input  class="form-control" id="category" name="category" value="<?php echo $post['category'];?>"></textarea>
                 <br>
                 <label>Url de l'illustration</label>
-                <input  class="form-control"id="image" name="image" value="<?php echo $data['image'];?>"></textarea>
+                <input  class="form-control"id="image" name="image" value="<?php echo $post['image'];?>"></textarea>
                 <br>
                 <label>Contenu de votre article</label>
-                <textarea  class="form-control" id="content" name="content" rows="10"><?php echo $data['content'];?></textarea>
+                <textarea  class="form-control" id="content" name="content" rows="10"><?php echo $post['content'];?></textarea>
                 <br>
                 <input type="submit" class="btn btn-primary" id="submit" name="submit">
             </div>

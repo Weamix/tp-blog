@@ -4,11 +4,9 @@ if(!isset($_SESSION)){
     session_start();
 }
 
-//$posts = delete_article();
+// $posts = delete_article();
 
 $pt = new PostTable();
-
-$getid = intval($_GET['id']);
 
 if (isset($_POST['to_delete'])) {
     $id = $_POST['id'];
@@ -16,6 +14,10 @@ if (isset($_POST['to_delete'])) {
     header('location:index.php');
 }
 
+$id = ($_GET['id']);
+$objet = $pt->get($id);
+
+$getid = intval($_GET['id']);
 $post = get_article($getid);
 $posts = $pt->all();
 
@@ -79,10 +81,10 @@ $posts = $pt->all();
         </nav>
 
         <div id="article">
-            <h1><a><?php echo htmlspecialchars($post['title']); ?></a></h1>
-            <h3><em>publié le <?php echo $post['created_at']; ?></em> dans la catégorie <?php echo $post['category']; ?></h3>
-            <img src="<?= $post['image'] ?>">
-            <p><?php echo nl2br(htmlspecialchars($post[ 'content'])); ?></p>
+            <h1><a><?php echo $objet->getTitle() ?></a></h1>
+            <h3><em>publié le <?php echo $post['created_at']; ?></em> dans la catégorie <?php echo $objet->getCategory() ?></h3>
+            <img src="<?= $objet->getImage() ?>">
+            <p><?php echo $objet->getContent() ?></p>
 
 
 

@@ -10,6 +10,7 @@ class PostTable
         $this->db = $db;
     }
 
+    // retrieve an article
     public function get(int $id): Post
     {
         $sth = $this->db->prepare("SELECT * FROM {$this->table} WHERE id = :id");
@@ -26,12 +27,14 @@ class PostTable
         return $post;
     }
 
+    // retrieve all articles
     public function all(): array
     {
         $sth = $this->db->query("SELECT * FROM {$this->table}");
         return $sth->fetchAll();
     }
 
+    // create an article
     public function create(Post $post): void
     {
         $sth = $this->db->prepare("INSERT INTO {$this->table} (title, content,created_at, category,image) VALUES (:title, :content, CURRENT_TIMESTAMP() , :category, :image)");
@@ -54,6 +57,7 @@ class PostTable
         }
     }
 
+    // update an article
     public function update(Post $post): void
     {
         $sth = $this->db->prepare("UPDATE {$this->table} SET title=:title, category=:category, content=:content, image=:image WHERE id=:id;");
@@ -67,6 +71,7 @@ class PostTable
         echo "L'article est modifié !";
     }
 
+    // delete an article
     public function delete(int $id): void
     {
         $sth = $this->db->prepare("DELETE FROM {$this->table} WHERE id =:id");
