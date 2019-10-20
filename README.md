@@ -28,7 +28,7 @@
 # Bonus :
 
 - [X] Front (design)
-- [X] Déploiement du blog sur un serveur => http://www.intelligence-artificielle.ovh/blog/public/index.php 
+- [X] Déploiement du blog sur un serveur => http://www.intelligence-artificielle.ovh/blog/public/index.php (V1)
 - [X] Système d'inscription
 
 Ideas ToDo :
