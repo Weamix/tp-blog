@@ -5,6 +5,7 @@ require_once '../includes/config.php';
 <!DOCTYPE html>
 <?php
 
+  error_reporting(0);
   session_start();
 
   if (isset($_POST['forminscription'])) {
