@@ -12,7 +12,7 @@ if(!isset($_SESSION)){
       if(isset($_POST['formconnexion'])) {
 
          $emailconnect = htmlspecialchars($_POST['emailconnect']);
-         $passwordconnect = sha1($_POST['passwordconnect']);
+         $passwordconnect = hash( 'sha256', $_POST['passwordconnect']);
 
          if(!empty( $emailconnect) AND !empty($passwordconnect)) {
 
@@ -104,7 +104,7 @@ if(!isset($_SESSION)){
 
             <form class="" action="" method="post">
 
-              <label for="emailconnect"> Email : test@test.com & mot de passe : 123 </label><br>
+              <label for="emailconnect"> Email : test2@test.com & mot de passe : test2@test.com </label><br>
               <label for="emailconnect"> Email : </label> <input type="email" name="emailconnect" value="" id="emailconnect" placeholder="Votre email">
               <label for="passwordconnect"> Mot de passe :</label> <input type="password" name="passwordconnect" value="" id="passwordconnect" placeholder="Votre mot de passe">
               <br>

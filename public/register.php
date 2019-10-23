@@ -12,8 +12,8 @@ require_once '../includes/config.php';
     $username = htmlspecialchars($_POST['username']);
     $email = htmlspecialchars($_POST['email']);
     $confirmemail = htmlspecialchars($_POST['confirmemail']);
-    $password = sha1($_POST['password']);
-    $confirmpassword = sha1($_POST['confirmpassword']);
+    $password = hash( 'sha256', $_POST['password']);
+    $confirmpassword = hash( 'sha256', $_POST['confirmpassword']);
 
     if (!empty($_POST['username']) AND !empty($_POST['email']) AND !empty($_POST['confirmemail']) AND !empty($_POST['password']) AND !empty($_POST['confirmpassword'])) {
 
